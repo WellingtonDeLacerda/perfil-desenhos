@@ -1,0 +1,184 @@
+@charset 'UTF-8';
+@font-face  {
+    font-family: 'darkcastle';
+    src: url('../fonts/darkcastle.otf') format('opentype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    /* cores principais */
+    --branco: #ffffff;
+    --preto: #000000;
+    --ciano: #2bd5ff;
+    --azul: #1d91ad;
+    --cinza: #777777;
+    /* cores gradients */
+    --amarelo:#fdf497 0% ;
+    --laranja:#fdf497 5% ;
+    --rosaforte:#fd5949 45% ;
+    --roxo: #d6249f 60%;
+    --azularoxeado: #285AEB 90% ;
+    /* fonts */
+    --padrao: Arial, Helvetica, Sans-serif;
+    --fonte1: 'darkcastle';
+}
+body {
+    display: grid;
+    place-items:center;
+    min-height: 100vh;
+    width: 100vw;
+    font-family: var(--padrao);
+    background-color: var(--azul);
+}
+main {
+    border-radius: .7rem;
+    background-color: var(--branco);
+    overflow: hidden;
+    margin: 1rem;
+    box-shadow: 2px 2px 5px var(--cinza);
+}
+/* aqui vai ficar os desenhos */
+#foto0 {display: block;}
+#foto1 {display: none;}
+#foto2 {display: none;}
+/* aqui termina */
+section.img {
+    position: relative;
+}
+picture nav {
+    display: flex;
+}
+nav a {
+    font-size: 2rem;
+    color: var(--preto);
+    font-weight: bold;
+    display: block;
+    background: #ffffff73;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0rem 2rem;
+    position: absolute;
+    border-radius: 50%;
+    cursor: none;
+    top: 50%;
+    transform: translateY(-50%);
+    text-decoration: none;
+    transition: .5s;
+}
+nav a:hover {
+    background: var(--branco);
+}
+nav a#prev {
+    left: 0;
+}
+nav a#next {
+    right: 0;
+}
+picture img {
+    width: 100%;
+    aspect-ratio:1/1;
+    object-fit: cover;
+    object-position: center center;
+}
+section.artigos {
+    padding: 2rem;
+}
+section.artigos h1 {
+    color: var(--azul);
+    font-family: var(--fonte1);
+}
+section.artigos p {
+    padding: 1rem 0rem;
+    color: var(--cinza);
+    line-height: 1.6rem;
+    text-align: justify;
+}
+section.artigos .draw {
+    letter-spacing: .5rem;
+    font-variant: small-caps;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: .7rem;
+    margin-bottom: 1rem;
+    color: var(--cinza);
+}
+div.figures {
+    display: flex;
+    margin-bottom: 1rem;
+    gap:1rem;
+}
+div.figures .fig {
+    display: inline-block;
+}
+#fig1 {
+    width: 0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-bottom: 1.7rem solid var(--azul);
+    
+}
+#fig2 {
+    border-radius: 50%;
+    background: var(--azul);
+    width: 1.7rem;
+    height: 1.7rem;
+    border: 2px solid white;
+    outline: 2px solid var(--azul);
+}
+#fig3 {
+    background: var(--azul);
+    width: 1.7rem;
+    height: 1.7rem;
+}
+section.artigos a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    border-radius: .7rem;
+    box-shadow: 0px 0px 7px #00000057;
+    font-weight: bold;
+    margin-top: 1rem;
+    border: 1.5px solid var(--branco);
+}
+#insta {
+    color: var(--branco);
+    background-image: linear-gradient(20deg, var(--amarelo),var(--laranja),var(--rosaforte),var(--roxo), var(--azularoxeado));
+}
+#insta:hover {
+    background: var(--ciano);
+    border: 1.5px solid var(--preto);
+}
+#github {
+    background: var(--preto);
+    color: var(--branco);
+}
+#github:hover {
+    border: 1.5px solid var(--preto);
+    background: var(--ciano);
+}
+@media screen and (min-width:48rem) {
+    main {
+        width: 45rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    section.img {
+        grid-column:1 / 2 ;
+    }
+    picture img {
+        height: 100%;
+        aspect-ratio:16/4;
+    }
+    section.artigos {
+        grid-column:2 / 3 ;
+    }
+}
